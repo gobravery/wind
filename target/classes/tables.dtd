@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT tables (table+,primarycol*,cpkey*)>
+<!ELEMENT table (name+,columns+,primarycol*,cpkey*)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT columns (column+)>
+<!ELEMENT primarycol (#PCDATA)>
+<!ELEMENT cpkey (#PCDATA)>
+<!ELEMENT column (#PCDATA)>
+<!ATTLIST column type (String|Integer|Long|DateTime|Clob|Blob|Float|Double|Datestamp) "String">
+<!ATTLIST column length CDATA "10">
+<!ATTLIST column auto (true|false) "false">

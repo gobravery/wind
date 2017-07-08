@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tables SYSTEM "./tables.dtd">
+  <tables>
+  	<table>
+  		<name>user</name>
+  		<columns>
+  			<column type="String">Host</column>
+  			<column type="String">User</column>
+  			<column type="String">Select_priv</column>
+  		</columns>
+  		<primarycol>User</primarycol>
+  		<cpkey>Select_priv</cpkey>
+  	</table>
+  	<table>
+  		<name>help_keyword</name>
+  		<columns>
+  			<column type="Integer">help_keyword_id</column>
+  			<column type="String">name</column>
+  		</columns>
+  	</table>
+  	<primarycol>help_keyword_id</primarycol>
+  	<cpkey>help_keyword_id</cpkey>
+  </tables>

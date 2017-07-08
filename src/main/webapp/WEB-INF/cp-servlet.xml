@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://www.springframework.org/schema/aop 
+            http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/mvc  
+            http://www.springframework.org/schema/mvc/spring-mvc.xsd  
+            http://www.springframework.org/schema/context  
+            http://www.springframework.org/schema/context/spring-context.xsd"
+	default-lazy-init="true">
+
+	<!-- 通过mvc:resources设置静态资源，这样servlet就会处理这些静态资源，而不通过控制器 -->
+	<!-- 设置不过滤内容，比如:css,jquery,img 等资源文件 -->
+	<!-- 设置不过滤内容，比如:css,jquery,img 等资源文件 -->
+	<mvc:default-servlet-handler />
+	<!--mvc:resources location="/js/" mapping="/js/**"/> <mvc:resources location="/*.html" 
+		mapping="/**.html" /> <mvc:resources location="/css/*" mapping="/css/**" 
+		/> <mvc:resources location="/images/*" mapping="/images/**" / -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<context:component-scan base-package="cp.csscis.aop" />
+	<context:component-scan base-package="cp.csscis.common" />
+	<context:component-scan base-package="cp.csscis.ctrl" />
+	<context:annotation-config />
+	<mvc:annotation-driven>
+		<!--mvc:message-converters> <bean class="org.springframework.http.converter.StringHttpMessageConverter"/> 
+			<bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/> 
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/> 
+			</mvc:message-converters -->
+		<mvc:message-converters>
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="objectMapper" value="#{jsonDataUtils.mapper}" />
+				<!--property name="supportedMediaTypes">
+					<list>
+						<value>text/json;charset=UTF-8</value>
+					</list>
+				</property-->
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<!-- mvc:view-controller可以在不需要Controller处理request的情况，转向到设置的View -->
+	<!-- 像下面这样设置，如果请求为/，则不通过controller，而直接解析为/index.jsp -->
+	<mvc:view-controller path="/" view-name="index" />
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView"></property>
+		<property name="order" value="200" />
+		<!-- 配置jsp路径前缀 -->
+		<property name="prefix" value="/jsp/"></property>
+		<!-- 配置URl后缀 -->
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	<import resource="vresolver-beans.xml" />
+</beans>  
