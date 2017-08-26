@@ -13,9 +13,9 @@ import org.apache.axis2.AxisFault;
 import org.xml.sax.SAXException;
 
 import com.gobravery.wind.common.Log4jUtils;
-import com.gobravery.wind.common.PropertyiesUtils;
+import com.gobravery.wind.common.SendPropertyiesUtils;
 import com.gobravery.wind.common.SendResult;
-import com.gobravery.wind.webtest.FileTestUtils;
+import com.gobravery.wind.ctrl.WsFileUtils;
 import com.gobravery.wind.xml.Column;
 import com.gobravery.wind.xml.JaxbReadXml;
 import com.gobravery.wind.xml.Table;
@@ -24,9 +24,9 @@ import com.gobravery.wind.xml.Tables;
 import net.sf.json.JSONArray;
 
 public abstract class AbstractDataSync {
-	protected int syncThreadNum = 100; // Êý¾ÝÁ¿
-	protected String primarycol; // Êý¾ÝÁ¿
-	protected String cpkey; // Êý¾ÝÁ¿
+	protected int syncThreadNum = 100; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	protected String primarycol; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	protected String cpkey; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public Tables getTables() throws JAXBException, SAXException,
 			ParserConfigurationException {
 		Tables tbs = JaxbReadXml.readStream(
@@ -51,21 +51,20 @@ public abstract class AbstractDataSync {
 				syncData(t);
 			}
 		} catch (Exception e) {
-			System.out.println("´ò¿ªÅäÖÃÎÄ¼þÊ§°Ü,Çë¼ì²écptables.xmlÎÄ¼þ!");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ê§ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½cptables.xmlï¿½Ä¼ï¿½!");
 			e.printStackTrace();
 			return;
 		} 
 	}
 
 	public boolean sendData(String data) {
-		PropertyiesUtils pu = new PropertyiesUtils();
+		SendPropertyiesUtils pu = new SendPropertyiesUtils();
 		final String ip = pu.get("ip").toString();
 		final int port = Integer.valueOf(pu.get("port").toString());
-		FileTestUtils ft = new FileTestUtils();
+		WsFileUtils ft = new WsFileUtils();
 		SendResult sr;
 		try {
-			ft.init(ip, port);
-			sr = ft.myname(data);
+			sr = ft.send(data);
 		} catch (AxisFault e) {
 			sr = new SendResult();
 			sr.setRemark(e.getLocalizedMessage());
@@ -82,10 +81,10 @@ public abstract class AbstractDataSync {
 	}
 
 	public String getCpkeyVal(String tablename, String cpkey)throws Exception {
-		// »ñµÃºËÐÄ¿âÁ¬½Ó
+		// ï¿½ï¿½Ãºï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½
         Connection coreConnection = ConnectionFactory.getDMSConnection(4);  
         Statement coreStmt = coreConnection.createStatement();  
-       // ÎªÃ¿¸öÏß³Ì·ÖÅä½á¹û¼¯
+       // ÎªÃ¿ï¿½ï¿½ï¿½ß³Ì·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         ResultSet coreRs = coreStmt.executeQuery(SQLPkg.getCpkeyValSQL(tablename,cpkey)); 
         coreRs.next();  
         String cpkeyVal = coreRs.getString(1);  

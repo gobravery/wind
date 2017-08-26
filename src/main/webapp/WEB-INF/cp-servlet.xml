@@ -21,9 +21,9 @@
 		mapping="/**.html" /> <mvc:resources location="/css/*" mapping="/css/**" 
 		/> <mvc:resources location="/images/*" mapping="/images/**" / -->
 	<aop:aspectj-autoproxy proxy-target-class="true" />
-	<context:component-scan base-package="cp.csscis.aop" />
-	<context:component-scan base-package="cp.csscis.common" />
-	<context:component-scan base-package="cp.csscis.ctrl" />
+	<context:component-scan base-package="com.gobravery.wind.aop" />
+	<context:component-scan base-package="com.gobravery.wind.common" />
+	<context:component-scan base-package="com.gobravery.wind.ctrl" />
 	<context:annotation-config />
 	<mvc:annotation-driven>
 		<!--mvc:message-converters> <bean class="org.springframework.http.converter.StringHttpMessageConverter"/> 

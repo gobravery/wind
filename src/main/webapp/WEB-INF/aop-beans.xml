@@ -22,7 +22,7 @@
 		<!-- 声明一个切面,并注入切面Bean,相当于@Aspect -->
 		<aop:aspect id="simpleAspect" ref="serviceAspect">
 			<!-- 配置一个切入点,相当于@Pointcut -->
-			<aop:pointcut expression="execution(* mvc1.csscis.ctrl..*(..))" id="simplePointcut"/>
+			<aop:pointcut expression="execution(* com.gobravery.wind.ctrl..*(..))" id="simplePointcut"/>
 			<!-- 配置通知,相当于@Before、@After、@AfterReturn、@Around、@AfterThrowing -->
 			<aop:before pointcut-ref="simplePointcut" method="before"/>
 			<aop:after pointcut-ref="simplePointcut" method="after"/>

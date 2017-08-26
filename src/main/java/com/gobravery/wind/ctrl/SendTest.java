@@ -19,12 +19,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.gobravery.wind.common.PropertyiesUtils;
 import com.gobravery.wind.common.Result;
+import com.gobravery.wind.common.SendPropertyiesUtils;
 import com.gobravery.wind.common.SendResult;
 import com.gobravery.wind.common.Utils;
 import com.gobravery.wind.cp.SimpleDataSync;
-import com.gobravery.wind.webtest.FileTestUtils;
 @Scope("prototype")
 @Controller
 @RequestMapping("/send")
@@ -36,7 +35,7 @@ public class SendTest {
 	// ��������ǰ̨��login����
 	private ModelAndView index(HttpServletResponse re, HttpServletRequest req) {
 		ModelAndView mv = new ModelAndView("index");
-		PropertyiesUtils pu=new PropertyiesUtils();
+		SendPropertyiesUtils pu=new SendPropertyiesUtils();
 		mv.addObject("ip", pu.get("ip"));
 		mv.addObject("port", pu.get("port"));
 		mv.addObject("sendMsg", pu.get("sendMsg"));
@@ -93,7 +92,7 @@ public class SendTest {
 			HttpServletResponse re, HttpServletRequest req
 
 	)  throws AxisFault,RemoteException {
-		PropertyiesUtils pu=new PropertyiesUtils();
+		SendPropertyiesUtils pu=new SendPropertyiesUtils();
 		pu.set("ip", ip);
 		pu.set("port", port+"");
 		Result r=new Result(true);
@@ -108,7 +107,7 @@ public class SendTest {
 			HttpServletResponse re, HttpServletRequest req
 
 	)  {
-		PropertyiesUtils pu=new PropertyiesUtils();
+		SendPropertyiesUtils pu=new SendPropertyiesUtils();
 		final String ip=pu.get("ip").toString();
 		final int port=Integer.valueOf(pu.get("port").toString());
 		final String sendMsg=msg;
@@ -154,7 +153,7 @@ public class SendTest {
 			@RequestParam(value = "sendFile", required = false) String sendFile,
 			@RequestParam(value = "sendFileCount", required = false) Integer sendFileCount,
 			HttpServletResponse re, HttpServletRequest req){
-		PropertyiesUtils pu=new PropertyiesUtils();
+		SendPropertyiesUtils pu=new SendPropertyiesUtils();
 		final List<SendResult> fileList = getFileResult(req);
 		final String fileAdd=sendFile;
 		final String ip=pu.get("ip").toString();
@@ -166,10 +165,9 @@ public class SendTest {
 			ep.submit(new Callable<Integer>() {
 				public Integer call() {
 					
-					FileTestUtils ft=new FileTestUtils();
+					WsFileUtils ft=new WsFileUtils();
 					SendResult sr;
 					try {
-						ft.init(ip, port);
 						sr = ft.upload(fileAdd);
 					} catch (AxisFault e) {
 						sr=new SendResult();

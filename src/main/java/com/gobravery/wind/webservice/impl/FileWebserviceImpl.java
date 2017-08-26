@@ -12,7 +12,7 @@ import org.apache.axis2.context.MessageContext;
 import org.apache.axis2.context.ServiceContext;
 import org.springframework.stereotype.Component;
 
-import com.gobravery.wind.common.PropertyiesUtils;
+import com.gobravery.wind.common.SendPropertyiesUtils;
 import com.gobravery.wind.webservice.FileWebservice;
 
 @Component("fileWebService")
@@ -22,12 +22,12 @@ public class FileWebserviceImpl implements FileWebservice{
 		return "hello my is fileWebservice";
 	}
 	public long myname(String name){
-		//¿ªÊ¼session£¬´æ´¢
+		//ï¿½ï¿½Ê¼sessionï¿½ï¿½ï¿½æ´¢
 		System.out.println("my name is :"+name);
 		return name.getBytes().length;
 	}
 	public void login(String name){
-		//¿ªÊ¼session£¬´æ´¢
+		//ï¿½ï¿½Ê¼sessionï¿½ï¿½ï¿½æ´¢
 		MessageContext mc = MessageContext.getCurrentMessageContext();  
         ServiceContext sc = mc.getServiceContext();  
         sc.setProperty("login", name);      
@@ -38,7 +38,7 @@ public class FileWebserviceImpl implements FileWebservice{
         ServiceContext sc = mc.getServiceContext();  
         return  sc.getProperty(key);      
 	}
-	 // Ê¹ÓÃbyte[]ÀàÐÍ²ÎÊýÉÏ´«¶þ½øÖÆÎÄ¼þ  
+	 // Ê¹ï¿½ï¿½byte[]ï¿½ï¿½ï¿½Í²ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½  
     public boolean uploadWithByte(byte[] file, String filename) {  
         FileOutputStream fos = null;  
         try {  
@@ -67,11 +67,11 @@ public class FileWebserviceImpl implements FileWebservice{
         }  
     }  
   
-    // Ê¹ÓÃDataHandlerÀàÐÍ²ÎÊýÉÏ´«ÎÄ¼þ  
+    // Ê¹ï¿½ï¿½DataHandlerï¿½ï¿½ï¿½Í²ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½Ä¼ï¿½  
     public long uploadWithDataHandler(DataHandler file, String filename,long size) {
   
         FileOutputStream fos = null;  
-        PropertyiesUtils pu=new PropertyiesUtils();
+        SendPropertyiesUtils pu=new SendPropertyiesUtils();
         String saveFilePath=pu.get("saveFilePath").toString();
         String dir=saveFilePath;//"d:"+File.separator+"send_test";
         try {
@@ -82,11 +82,11 @@ public class FileWebserviceImpl implements FileWebservice{
         	long temp=System.currentTimeMillis();
         	String filepath=dir+File.separator+temp+"_"+filename;
             fos = new FileOutputStream(filepath);  
-            // ¿ÉÍ¨¹ýDataHandlerÀàµÄgetInputStream·½·¨¶ÁÈ¡ÉÏ´«Êý¾Ý  
+            // ï¿½ï¿½Í¨ï¿½ï¿½DataHandlerï¿½ï¿½ï¿½getInputStreamï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½  
             writeInputStreamToFile(file.getInputStream(), fos);  
             fos.close();  
             File s=new File(filepath);  
-            System.out.println("½ÓÊÕ£º"+s.length()+",·¢ËÍ:"+size);
+            System.out.println("ï¿½ï¿½ï¿½Õ£ï¿½"+s.length()+",ï¿½ï¿½ï¿½ï¿½:"+size);
             return s.length();
         } catch (Exception e) {
         	e.printStackTrace();

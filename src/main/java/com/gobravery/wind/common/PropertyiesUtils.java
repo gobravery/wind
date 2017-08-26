@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class PropertyiesUtils {
+public abstract class PropertyiesUtils {
 	Properties pps = null;
 	AtomicBoolean load = new AtomicBoolean(false);
 	public boolean init() {
@@ -19,7 +19,7 @@ public class PropertyiesUtils {
 			if (!load.get()) {
 				pps = new Properties();
 				InputStream in = new FileInputStream(this.getClass()
-						.getResource("/testsend.properties").getPath());
+						.getResource(getConfPath()).getPath());
 				pps.load(in);
 				in.close();
 				load.set(true);
@@ -36,7 +36,7 @@ public class PropertyiesUtils {
 		try {
 			pps.setProperty(key, value);
 			OutputStream fos = new FileOutputStream(this.getClass()
-					.getResource("/testsend.properties").getPath());
+					.getResource(getConfPath()).getPath());
 			DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			pps.store(fos, df.format(new Date()));
 		} catch (IOException e) {
@@ -54,4 +54,5 @@ public class PropertyiesUtils {
 			return null;
 		}
 	}
+	public abstract String getConfPath();
 }

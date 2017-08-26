@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<transportReceiver name="http" class="org.apache.axis2.transport.http.AxisServletListener">
-    <parameter name="port">8080</parameter>
-</transportReceiver>
