@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <serviceGroup>
 <!-- soapsession scope="transportsession"-->
-	<service name="FileWebService" >
+	<service name="uploadService" >
 		<description>FileWebservice</description>
 		<parameter name="ServiceObjectSupplier">
 			org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier
 		</parameter>
-		<parameter name="SpringBeanName">uploadService</parameter>
-		<parameter name="load-on-startup">true</parameter>
-		<messageReceivers>
-			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
-				class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+		<operation name="acceptFile">
 			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
 				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
-		</messageReceivers>
-		<!--operation name="say">  
-            <messageReceiver  
-                class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />  
-        </operation--> 
+		</operation>
+		<parameter name="SpringBeanName">uploadService</parameter>
+		<parameter name="load-on-startup">true</parameter>
 	</service>
 </serviceGroup>

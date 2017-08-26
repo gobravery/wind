@@ -169,11 +169,7 @@ public class SendTest {
 					SendResult sr;
 					try {
 						sr = ft.upload(fileAdd);
-					} catch (AxisFault e) {
-						sr=new SendResult();
-						sr.setRemark(e.getLocalizedMessage());
-						e.printStackTrace();
-					} catch (RemoteException e) {
+					} catch (Exception e) {
 						sr=new SendResult();
 						sr.setRemark(e.getLocalizedMessage());
 						e.printStackTrace();
