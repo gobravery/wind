@@ -1,12 +1,14 @@
-package com.gobravery.wind.webservice.impl;
+package com.gobravery.wind.server.impl;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import com.gobravery.wind.webservice.UploadService;
+import org.springframework.stereotype.Component;
 
+import com.gobravery.wind.server.UploadService;
+@Component("uploadService")
 public class UploadServiceImpl implements UploadService {
 
 	@Override

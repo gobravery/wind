@@ -1,4 +1,4 @@
-package com.gobravery.wind.webservice;
+package com.gobravery.wind.server;
 
 import javax.activation.DataHandler;
 

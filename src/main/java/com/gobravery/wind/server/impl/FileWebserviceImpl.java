@@ -1,4 +1,4 @@
-package com.gobravery.wind.webservice.impl;
+package com.gobravery.wind.server.impl;
 
 
 import java.io.File;
@@ -13,7 +13,7 @@ import org.apache.axis2.context.ServiceContext;
 import org.springframework.stereotype.Component;
 
 import com.gobravery.wind.common.SendPropertyiesUtils;
-import com.gobravery.wind.webservice.FileWebservice;
+import com.gobravery.wind.server.FileWebservice;
 
 @Component("fileWebService")
 public class FileWebserviceImpl implements FileWebservice{
