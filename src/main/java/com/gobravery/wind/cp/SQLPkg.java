@@ -23,7 +23,7 @@ public class SQLPkg {
 		return sql;
 	}
 	/**
-	 * @Description:把数组转换为一个用逗号分隔的字符串 ，以便于用in+String 查询
+	 * @Description:鎶婃暟缁勮浆鎹负涓�涓敤閫楀彿鍒嗛殧鐨勫瓧绗︿覆 锛屼互渚夸簬鐢╥n+String 鏌ヨ
 	 */
 	public static String converToString(String[] ig) {
 		String str = "";
@@ -37,7 +37,7 @@ public class SQLPkg {
 	}
 
 	/**
-	 * @Description:把list转换为一个用逗号分隔的字符串
+	 * @Description:鎶妉ist杞崲涓轰竴涓敤閫楀彿鍒嗛殧鐨勫瓧绗︿覆
 	 */
 	public static String listToString(List<String> list) {
 		StringBuilder sb = new StringBuilder();

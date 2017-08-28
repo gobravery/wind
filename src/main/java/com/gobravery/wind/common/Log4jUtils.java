@@ -9,17 +9,17 @@ public class Log4jUtils {
      */  
     public static void d(String args) {  
           
-        // ¼ÇÂ¼debug¼¶±ğµÄĞÅÏ¢  
+        // è®°å½•debugçº§åˆ«çš„ä¿¡æ¯  
         logger.debug(args);  
     }
     public static void i(String args) {  
           
-    	// ¼ÇÂ¼info¼¶±ğµÄĞÅÏ¢  
+    	// è®°å½•infoçº§åˆ«çš„ä¿¡æ¯  
         logger.info(args);  
     }
     public static void e(String args) {  
           
-    	// ¼ÇÂ¼error¼¶±ğµÄĞÅÏ¢  
+    	// è®°å½•errorçº§åˆ«çš„ä¿¡æ¯  
         logger.error(args);  
     }
 }

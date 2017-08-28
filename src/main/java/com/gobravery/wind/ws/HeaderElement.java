@@ -9,8 +9,8 @@ public class HeaderElement {
 	String url;
 	String cld;
 	/**
-	 * @param url 地址如：www.csscis.com
-	 * @param cld 企业代码如：csscis
+	 * @param url 鍦板潃濡傦細www.csscis.com
+	 * @param cld 浼佷笟浠ｇ爜濡傦細csscis
 	 */
 	public HeaderElement(String url,String cld){
 		this.url=url;
@@ -20,15 +20,15 @@ public class HeaderElement {
 		return getHeader("bank","root","1234556");
 	}
 	/**
-	 * 拼接头文件
+	 * 鎷兼帴澶存枃浠�
 	 *<security> 
 	 * <username> root </username>
 	 * <role> csscis </role> 
 	 * <password> password </password>  
 	 * </security> 
-	 * @param rol 角色编 码 :bank
-	 * @param user 用户名:root
-	 * @param pwd 密码:123456
+	 * @param rol 瑙掕壊缂� 鐮� :bank
+	 * @param user 鐢ㄦ埛鍚�:root
+	 * @param pwd 瀵嗙爜:123456
 	 * @return
 	 */
 	public OMElement getHeader(String rol,String user,String pwd){

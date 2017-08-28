@@ -27,6 +27,6 @@ public abstract class AbstractServiceProxy implements IServiceProxy{
 	        );
 	    return (T) o;
 	}
-	//其它配置
+	//鍏跺畠閰嶇疆
 	protected abstract void setConf(RPCServiceClient  serviceClient,Options options,WSModel<?> wsModel); 
 }

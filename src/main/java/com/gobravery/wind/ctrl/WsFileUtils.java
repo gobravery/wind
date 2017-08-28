@@ -23,6 +23,6 @@ public class WsFileUtils {
 	}
 	public static void main(String[] args)throws Exception{
 		WsFileUtils wfu=new WsFileUtils();
-		wfu.upload("D:\\安装包\\44.0.2403.130_chrome_installer.exe");
+		wfu.upload("D:\\瀹夎鍖匼\44.0.2403.130_chrome_installer.exe");
 	}
 }

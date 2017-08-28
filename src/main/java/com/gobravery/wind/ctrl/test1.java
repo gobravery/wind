@@ -35,13 +35,13 @@ import com.gobravery.wind.xml.JaxbReadXml;
 public class test1 {
 	@Autowired
 	public Utils u;
-	@RequestMapping(value="/index") //用来处理前台的login请求  
+	@RequestMapping(value="/index") //鐢ㄦ潵澶勭悊鍓嶅彴鐨刲ogin璇锋眰  
     private String index(){
 		System.out.println("ix/index");
         return "index";  
           
     }
-	@RequestMapping("/login") //用来处理前台的login请求  
+	@RequestMapping("/login") //鐢ㄦ潵澶勭悊鍓嶅彴鐨刲ogin璇锋眰  
 	public  @ResponseBody String hello(
             @RequestParam(value = "username", required = false)String username,  
             @RequestParam(value = "password", required = false)String d ,
@@ -53,14 +53,14 @@ public class test1 {
         return "Hello "+username+",Your password is: "+d+";content:"+content;  
           
     }
-	@RequestMapping(value = "/test", method = RequestMethod.POST, consumes = "application/json") //用来处理前台的login请求  @RequestBody
+	@RequestMapping(value = "/test", method = RequestMethod.POST, consumes = "application/json") //鐢ㄦ潵澶勭悊鍓嶅彴鐨刲ogin璇锋眰  @RequestBody
 	public  @ResponseBody String test(@RequestBody TUser t,HttpServletResponse re){
 
 		String content=t.getUsername();
 		System.out.println(content);
 		return content;  
     }
-	@RequestMapping("/say/{name}") //用来处理前台的login请求  
+	@RequestMapping("/say/{name}") //鐢ㄦ潵澶勭悊鍓嶅彴鐨刲ogin璇锋眰  
 	public  @ResponseBody String say(
 			@PathVariable String name
             ){
@@ -69,7 +69,7 @@ public class test1 {
         return name;
           
     }
-	@RequestMapping("/to") //用来处理前台的login请求  
+	@RequestMapping("/to") //鐢ㄦ潵澶勭悊鍓嶅彴鐨刲ogin璇锋眰  
 	public  @ResponseBody String to() throws Exception{
 		JaxbReadXml.to();
         return "ok!";
@@ -81,7 +81,7 @@ public class test1 {
 	       os.flush();
 	}
 	//@ModelAttribute("tu")
-	@RequestMapping("/info") //用来处理前台的login请求  
+	@RequestMapping("/info") //鐢ㄦ潵澶勭悊鍓嶅彴鐨刲ogin璇锋眰  
 	public  @ResponseBody TUser info(){
 		TUser tu=new TUser();
 		tu.setPassword("info");
@@ -90,7 +90,7 @@ public class test1 {
         return tu;
           
     }
-	@RequestMapping("/infohead") //用来处理前台的login请求  
+	@RequestMapping("/infohead") //鐢ㄦ潵澶勭悊鍓嶅彴鐨刲ogin璇锋眰  
 	public  ResponseEntity<TUser>  infohead(@ModelAttribute("tu") TUser tu){
 //		TUser tu=new TUser();
 //		tu.setPassword("asdfasfdas");
@@ -112,11 +112,11 @@ public class test1 {
 		System.out.println("sa:"+tu.getPassword());
 		return tu;
     }
-	@RequestMapping("/gb") //用来处理前台的login请求  
+	@RequestMapping("/gb") //鐢ㄦ潵澶勭悊鍓嶅彴鐨刲ogin璇锋眰  
 	public  @ResponseBody TUser gb(TUser sd,@ModelAttribute("tu") TUser tu){
         return tu;
     }
-	@RequestMapping("/gb2") //用来处理前台的login请求  
+	@RequestMapping("/gb2") //鐢ㄦ潵澶勭悊鍓嶅彴鐨刲ogin璇锋眰  
 	public  @ResponseBody TUser gb2(ModelMap mm,SessionStatus  s){
 		TUser tu = (TUser)mm.get("tu");
 		if(tu!=null){
@@ -126,14 +126,14 @@ public class test1 {
         return tu;
           
     }
-	@RequestMapping("/getname") //用来处理前台的login请求  
+	@RequestMapping("/getname") //鐢ㄦ潵澶勭悊鍓嶅彴鐨刲ogin璇锋眰  
 	public  ModelAndView getName(TUser sd,@ModelAttribute("tu") TUser tu){
 		ModelAndView mv=new ModelAndView("test");
 		
 		mv.addObject("username",tu.getUsername());
         return mv;
     }
-	@RequestMapping("/getname3") //用来处理前台的login请求  
+	@RequestMapping("/getname3") //鐢ㄦ潵澶勭悊鍓嶅彴鐨刲ogin璇锋眰  
 	public  void getName(HttpServletResponse response,HttpServletRequest request) throws Exception{
 			String name="asdf";
 			request.setAttribute("username",name);

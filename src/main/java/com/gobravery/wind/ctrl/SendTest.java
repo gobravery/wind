@@ -32,7 +32,7 @@ public class SendTest {
 	public Utils u;
 	int i=0;
 	@RequestMapping(value = "/index")
-	// ��������ǰ̨��login����
+	// 锟斤拷锟斤拷锟斤拷锟斤拷前台锟斤拷login锟斤拷锟斤拷
 	private ModelAndView index(HttpServletResponse re, HttpServletRequest req) {
 		ModelAndView mv = new ModelAndView("index");
 		SendPropertyiesUtils pu=new SendPropertyiesUtils();
@@ -46,10 +46,10 @@ public class SendTest {
 
 	}
 	@RequestMapping(value = "/msgResult")
-	// ��������ǰ̨��login����
+	// 锟斤拷锟斤拷锟斤拷锟斤拷前台锟斤拷login锟斤拷锟斤拷
 	private @ResponseBody List<SendResult> msgResult(HttpServletResponse re, HttpServletRequest req) {
 		List<SendResult> msgList = getMsgResult(req);
-		System.out.println("������"+i);
+		System.out.println("锟斤拷锟斤拷锟斤拷"+i);
 		i++;
 		return msgList;
 	}
@@ -66,7 +66,7 @@ public class SendTest {
 		return msgList;
 	}
 	@RequestMapping(value = "/fileResult")
-	// ��������ǰ̨��login����
+	// 锟斤拷锟斤拷锟斤拷锟斤拷前台锟斤拷login锟斤拷锟斤拷
 	private @ResponseBody List<SendResult> fileResult(HttpServletResponse re, HttpServletRequest req) {
 		List<SendResult> fileList = getFileResult(req);
 		return fileList;
@@ -85,7 +85,7 @@ public class SendTest {
 		return fileList;
 	}
 	@RequestMapping("/sve")
-	// ��������ǰ̨��login����
+	// 锟斤拷锟斤拷锟斤拷锟斤拷前台锟斤拷login锟斤拷锟斤拷
 	public @ResponseBody Result sendsve(
 			@RequestParam(value = "ip", required = false) String ip,
 			@RequestParam(value = "port", required = false) int port,
@@ -96,11 +96,11 @@ public class SendTest {
 		pu.set("ip", ip);
 		pu.set("port", port+"");
 		Result r=new Result(true);
-		r.setMessage("�ɹ�!");
+		r.setMessage("锟缴癸拷!");
 		return r;
 	}
 	@RequestMapping("/str")
-	// ��������ǰ̨��login����
+	// 锟斤拷锟斤拷锟斤拷锟斤拷前台锟斤拷login锟斤拷锟斤拷
 	public @ResponseBody Result sendstr(
 			@RequestParam(value = "sendMsg", required = false) String msg,
 			@RequestParam(value = "sendMsgCount", required = false) int count,
@@ -143,12 +143,12 @@ public class SendTest {
 			count--;
 		}while(count>0);
 		Result r=new Result(true);
-		r.setMessage("��ʼ");
+		r.setMessage("锟斤拷始");
 		return r;
 	}
 
 	@RequestMapping(value = "/file")
-	// ��������ǰ̨��login���� @RequestBody
+	// 锟斤拷锟斤拷锟斤拷锟斤拷前台锟斤拷login锟斤拷锟斤拷 @RequestBody
 	public @ResponseBody Result sendfile(
 			@RequestParam(value = "sendFile", required = false) String sendFile,
 			@RequestParam(value = "sendFileCount", required = false) Integer sendFileCount,
@@ -181,7 +181,7 @@ public class SendTest {
 			sendFileCount--;
 		}while(sendFileCount>0);
 		Result r=new Result(true);
-		r.setMessage("��ʼ");
+		r.setMessage("锟斤拷始");
 		return r;
 	}
 

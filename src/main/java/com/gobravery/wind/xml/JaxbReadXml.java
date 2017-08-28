@@ -27,7 +27,7 @@ public class JaxbReadXml  {
 	            Unmarshaller u = jc.createUnmarshaller();
 	            SAXParserFactory sax = SAXParserFactory.newInstance();
 	            XMLReader xmlReader = sax.newSAXParser().getXMLReader();
-	            //不进行dtd验证
+	            //涓嶈繘琛宒td楠岃瘉
 	            xmlReader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
 	            Source source = new SAXSource(xmlReader, new InputSource(context));
 	            System.out.println("systemid:"+source.getSystemId());

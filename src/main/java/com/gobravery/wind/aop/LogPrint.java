@@ -19,26 +19,26 @@ public class LogPrint {
 		
 		//System.out.println("log:anyMethod");
 		
-	}//����һ�������	
-	@Before("execution(* org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.*(..))")//����ǰ��֪ͨ
+	}//声明一个切入点	
+	@Before("execution(* org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.*(..))")//定义前置通知
 	public void doBefore(JoinPoint  userName) {
-		System.out.println("log:before->����ǰ��֪ͨ"+userName);
+		System.out.println("log:before->定义前置通知"+userName);
 	}
-	@AfterReturning(pointcut="anyMethod()",returning="revalue")//�������֪ͨ
+	@AfterReturning(pointcut="anyMethod()",returning="revalue")//定义后置通知
 	public void doReturnCheck(String revalue) {
-		System.out.println("log:before->�������֪ͨ");
+		System.out.println("log:before->定义后置通知");
 	}
-	@AfterThrowing(pointcut="anyMethod()", throwing="ex")//��������֪ͨ
+	@AfterThrowing(pointcut="anyMethod()", throwing="ex")//定义例外通知
     public void doExceptionAction(Exception ex) {
-		System.out.println("log:before->��������֪ͨ");
+		System.out.println("log:before->定义例外通知");
 	}
-	@After("anyMethod()")//��������֪ͨ
+	@After("anyMethod()")//定义最终通知
 	public void doReleaseAction() {
-		System.out.println("log:before->��������֪ͨ");
+		System.out.println("log:before->定义最终通知");
 	}
-	@Around("anyMethod()")//����֪ͨ
+	@Around("anyMethod()")//环绕通知
 	public Object doBasicProfiling(ProceedingJoinPoint pjp) throws Throwable {
-		System.out.println("log:before->����֪ͨ");
+		System.out.println("log:before->环绕通知");
 		return pjp.proceed();
 	}
 }

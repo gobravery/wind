@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
 import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;  
   
 /** 
- * json´¦Àí¹¤¾ßÀà 
+ * jsonå¤„ç†å·¥å…·ç±» 
  * @author zhangle 
  */  
 @Component  
@@ -54,7 +54,7 @@ public class JsonDataUtils {
                 try {  
                         return mapper.writeValueAsString(obj);  
                 } catch (Exception e) {  
-                        throw new RuntimeException("×ª»»json×Ö·ûÊ§°Ü!");  
+                        throw new RuntimeException("è½¬æ¢jsonå­—ç¬¦å¤±è´¥!");  
                 }  
         }  
           
@@ -62,7 +62,7 @@ public class JsonDataUtils {
                 try {  
                         return mapper.readValue(json, clazz);  
                 } catch (IOException e) {  
-                        throw new RuntimeException("½«json×Ö·û×ª»»Îª¶ÔÏóÊ±Ê§°Ü!");  
+                        throw new RuntimeException("å°†jsonå­—ç¬¦è½¬æ¢ä¸ºå¯¹è±¡æ—¶å¤±è´¥!");  
                 }  
         }  
           

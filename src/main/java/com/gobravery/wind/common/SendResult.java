@@ -8,12 +8,12 @@ public class SendResult {
 	
 	Date createTime=new Date();
 	boolean success=false;
-	double time=0d;//ºÄÊ±,s
-	double speed=0d;//ËÙ¶È,MB/s
-	double size=0d;//×Ü´óĞ¡,MB
-	long sendleng=0l;//·¢ËÍ³¤¶È,(byte)
-	long reciveleng=0l;//½ÓÊÕ³¤¶È,(byte)
-	String remark="";//±¸×¢
+	double time=0d;//è€—æ—¶,s
+	double speed=0d;//é€Ÿåº¦,MB/s
+	double size=0d;//æ€»å¤§å°,MB
+	long sendleng=0l;//å‘é€é•¿åº¦,(byte)
+	long reciveleng=0l;//æ¥æ”¶é•¿åº¦,(byte)
+	String remark="";//å¤‡æ³¨
 	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	public Date getCreateTime() {
 		return createTime;
@@ -65,14 +65,14 @@ public class SendResult {
 	}
 	public String toString(){
 		String html="";
-		html+="Ê±¼ä£º"+createTime+",";
-		html+="³É¹¦£º"+success+",";
-		html+="ºÄÊ±£º"+time+"(s),";
-		html+="ËÙ¶È£º"+speed+"(MB/S),";
-		html+="ÎÄ¼ş´óĞ¡£º"+size+"(MB),";
-		html+="·¢ËÍ³¤¶È£º"+sendleng+"(Byte),";
-		html+="½ÓÊÕ³¤¶È£º"+reciveleng+"(Byte),";
-		html+="±¸×¢£º"+remark+".";
+		html+="æ—¶é—´ï¼š"+createTime+",";
+		html+="æˆåŠŸï¼š"+success+",";
+		html+="è€—æ—¶ï¼š"+time+"(s),";
+		html+="é€Ÿåº¦ï¼š"+speed+"(MB/S),";
+		html+="æ–‡ä»¶å¤§å°ï¼š"+size+"(MB),";
+		html+="å‘é€é•¿åº¦ï¼š"+sendleng+"(Byte),";
+		html+="æ¥æ”¶é•¿åº¦ï¼š"+reciveleng+"(Byte),";
+		html+="å¤‡æ³¨ï¼š"+remark+".";
 		return html;
 	}
 }

@@ -8,7 +8,7 @@ public class WSClientFactory {
 	public static <T> T  get(Class<T> clz) throws Exception{
 		WSModel<T> sd=new WSModel<T>(clz);
 		if(!sd.isModel()){
-			throw new RuntimeException(clz.getName()+"未配置:@WebServiceClient注解!");
+			throw new RuntimeException(clz.getName()+"鏈厤缃�:@WebServiceClient娉ㄨВ!");
 		}
 		IServiceProxy proxy=getCache(sd.getWsdlLocation());
 		if(proxy==null){

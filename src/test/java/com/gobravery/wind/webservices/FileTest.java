@@ -22,13 +22,13 @@ public class FileTest {
 		serviceClient = new RPCServiceClient();
 		Options options = serviceClient.getOptions();
 		options.setTo(targetEPR);
-		options.setManageSession(true);//±£³Ösession
+		options.setManageSession(true);//ä¿æŒsession
 		//login();
 		//say();
 		upload();
 	}
 	/**
-	 *µ÷ÓÃ²âÊÔ£¬ÎŞÈë²Î,·´»ØÖµÎªString
+	 *è°ƒç”¨æµ‹è¯•ï¼Œæ— å…¥å‚,åå›å€¼ä¸ºString
 	 *
 	 */
 	public static void say() throws AxisFault {
@@ -49,7 +49,7 @@ public class FileTest {
 		}
 	}
 	/**
-	 *µ÷ÓÃ²âÊÔ£¬Èë²ÎÎªString,ÎŞ·´»ØÖµ
+	 *è°ƒç”¨æµ‹è¯•ï¼Œå…¥å‚ä¸ºString,æ— åå›å€¼
 	 *
 	 */
 	public static void myname() throws AxisFault {
@@ -67,11 +67,11 @@ public class FileTest {
 		} else {
 			String result = (String) response[0];
 			System.out.println();
-			System.out.println("·¢ËÍ³¤¶È: "+name.length()+",½ÓÊÕ³¤¶È:" + result);
+			System.out.println("å‘é€é•¿åº¦: "+name.length()+",æ¥æ”¶é•¿åº¦:" + result);
 		}
 	}
 	/**
-	 *µÇÂ½ÓÃÓÚsession±£³Ö²âÊÔ
+	 *ç™»é™†ç”¨äºsessionä¿æŒæµ‹è¯•
 	 *
 	 */
 	public static void login() throws AxisFault {
@@ -84,7 +84,7 @@ public class FileTest {
 				opGetWeatherArgs);
 	}
 	/**
-	 *ÎÄ¼ş´«Êä 
+	 *æ–‡ä»¶ä¼ è¾“ 
 	 * 
 	 */
 	public static void upload() throws RemoteException  {
@@ -101,14 +101,14 @@ public class FileTest {
 			hd.setArgs1("fileUp");
 			hd.setArgs2(b);
 			UploadWithDataHandlerResponse response=stub.uploadWithDataHandler(hd);
-			System.out.println("DataHandlerÉÏ´«£¿"+hd.isArgs0Specified()+"   "+"Ãû×ÖÓĞÎŞÃüÃû£º"+hd.isArgs1Specified());
+			System.out.println("DataHandlerä¸Šä¼ ï¼Ÿ"+hd.isArgs0Specified()+"   "+"åå­—æœ‰æ— å‘½åï¼š"+hd.isArgs1Specified());
 			long e=System.currentTimeMillis();
 			double hs=(e-s)/1000d;
-			System.out.println("´«ÊäºÄÊ±:"+hs+"s"+",ÎÄ¼ş´óĞ¡:"+Utils.get2Double(mb)+"MB,ËÙÂÊ:"+Utils.get2Double(mb/hs)+"MB/s");
-			System.out.println("·¢ËÍ³¤¶È(byte)£º"+b+",½ÓÊÕ³¤¶È(byte)£º"+(response.local_return)+"");
+			System.out.println("ä¼ è¾“è€—æ—¶:"+hs+"s"+",æ–‡ä»¶å¤§å°:"+Utils.get2Double(mb)+"MB,é€Ÿç‡:"+Utils.get2Double(mb/hs)+"MB/s");
+			System.out.println("å‘é€é•¿åº¦(byte)ï¼š"+b+",æ¥æ”¶é•¿åº¦(byte)ï¼š"+(response.local_return)+"");
 			System.out.println("end");
 		}else{
-			System.out.println("ÎÄ¼ş²»´æÔÚ,»òÕß²»ÊÇÎÄ¼ş");
+			System.out.println("æ–‡ä»¶ä¸å­˜åœ¨,æˆ–è€…ä¸æ˜¯æ–‡ä»¶");
 		}
 	}
 }

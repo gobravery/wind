@@ -25,16 +25,16 @@ public class SimpleDataSync extends AbstractDataSync{
 		}
 		String cpkeyVal=getCpkeyVal(table.name,  tableCpkey);
 		
-		// »ñµÃºËĞÄ¿âÁ¬½Ó
+		// è·å¾—æ ¸å¿ƒåº“è¿æ¥
         Connection coreConnection = ConnectionFactory.getDMSConnection(4);  
         Statement coreStmt = coreConnection.createStatement();  
-       // ÎªÃ¿¸öÏß³Ì·ÖÅä½á¹û¼¯
+       // ä¸ºæ¯ä¸ªçº¿ç¨‹åˆ†é…ç»“æœé›†
         String countsql=SQLPkg.getCountSQL(table.name, tableCpkey, cpkeyVal);
         ResultSet coreRs = coreStmt.executeQuery(countsql); 
         coreRs.next();  
-       // ×Ü¹²´¦ÀíµÄÊıÁ¿
+       // æ€»å…±å¤„ç†çš„æ•°é‡
         long totalNum = coreRs.getLong(1);  
-        // Ïß³ÌÊı
+        // çº¿ç¨‹æ•°
         int ownerRecordNum = (int)Math.ceil((totalNum / (float)syncThreadNum));   
         for(int i=0; i < ownerRecordNum; i ++){
         	String querysql=SQLPkg.getQuerySQL(table.name, ls, tableCpkey, cpkeyVal,i*syncThreadNum,syncThreadNum);

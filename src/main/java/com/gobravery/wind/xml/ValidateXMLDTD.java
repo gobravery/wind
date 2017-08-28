@@ -12,10 +12,10 @@ import org.xml.sax.SAXException;
 public class ValidateXMLDTD {
     
     public static void main(String[] args) {
-//        System.out.println("测试符合DTD规范的XML文件");
+//        System.out.println("娴嬭瘯绗﹀悎DTD瑙勮寖鐨刋ML鏂囦欢");
         test("cptables.xml");
         
-//        System.out.println("测试不符合DTD规范的XML文件");
+//        System.out.println("娴嬭瘯涓嶇鍚圖TD瑙勮寖鐨刋ML鏂囦欢");
 //        testWorkder();
         
     }

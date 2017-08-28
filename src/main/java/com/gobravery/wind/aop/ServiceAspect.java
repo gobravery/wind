@@ -6,23 +6,23 @@ import org.aspectj.lang.ProceedingJoinPoint;
 public class ServiceAspect {
 
 	
-	//ÅäÖÃÇĞÈëµã,¸Ã·½·¨ÎŞ·½·¨Ìå,Ö÷ÒªÎª·½±ãÍ¬ÀàÖĞÆäËû·½·¨Ê¹ÓÃ´Ë´¦ÅäÖÃµÄÇĞÈëµã
+	//é…ç½®åˆ‡å…¥ç‚¹,è¯¥æ–¹æ³•æ— æ–¹æ³•ä½“,ä¸»è¦ä¸ºæ–¹ä¾¿åŒç±»ä¸­å…¶ä»–æ–¹æ³•ä½¿ç”¨æ­¤å¤„é…ç½®çš„åˆ‡å…¥ç‚¹
 	public void aspect(){	}
 	
 	/*
-	 * ÅäÖÃÇ°ÖÃÍ¨Öª,Ê¹ÓÃÔÚ·½·¨aspect()ÉÏ×¢²áµÄÇĞÈëµã
-	 * Í¬Ê±½ÓÊÜJoinPointÇĞÈëµã¶ÔÏó,¿ÉÒÔÃ»ÓĞ¸Ã²ÎÊı
+	 * é…ç½®å‰ç½®é€šçŸ¥,ä½¿ç”¨åœ¨æ–¹æ³•aspect()ä¸Šæ³¨å†Œçš„åˆ‡å…¥ç‚¹
+	 * åŒæ—¶æ¥å—JoinPointåˆ‡å…¥ç‚¹å¯¹è±¡,å¯ä»¥æ²¡æœ‰è¯¥å‚æ•°
 	 */
 	public void before(JoinPoint joinPoint){
 			System.out.println("before " + joinPoint);
 	}
 	
-	//ÅäÖÃºóÖÃÍ¨Öª,Ê¹ÓÃÔÚ·½·¨aspect()ÉÏ×¢²áµÄÇĞÈëµã
+	//é…ç½®åç½®é€šçŸ¥,ä½¿ç”¨åœ¨æ–¹æ³•aspect()ä¸Šæ³¨å†Œçš„åˆ‡å…¥ç‚¹
 	public void after(JoinPoint joinPoint){
 		System.out.println("after " + joinPoint);
 	}
 	
-	//ÅäÖÃ»·ÈÆÍ¨Öª,Ê¹ÓÃÔÚ·½·¨aspect()ÉÏ×¢²áµÄÇĞÈëµã
+	//é…ç½®ç¯ç»•é€šçŸ¥,ä½¿ç”¨åœ¨æ–¹æ³•aspect()ä¸Šæ³¨å†Œçš„åˆ‡å…¥ç‚¹
 	public void around(JoinPoint joinPoint){
 		long start = System.currentTimeMillis();
 		try {
@@ -35,12 +35,12 @@ public class ServiceAspect {
 		}
 	}
 	
-	//ÅäÖÃºóÖÃ·µ»ØÍ¨Öª,Ê¹ÓÃÔÚ·½·¨aspect()ÉÏ×¢²áµÄÇĞÈëµã
+	//é…ç½®åç½®è¿”å›é€šçŸ¥,ä½¿ç”¨åœ¨æ–¹æ³•aspect()ä¸Šæ³¨å†Œçš„åˆ‡å…¥ç‚¹
 	public void afterReturn(JoinPoint joinPoint){
 		System.out.println("afterReturn " + joinPoint);
 	}
 	
-	//ÅäÖÃÅ×³öÒì³£ºóÍ¨Öª,Ê¹ÓÃÔÚ·½·¨aspect()ÉÏ×¢²áµÄÇĞÈëµã
+	//é…ç½®æŠ›å‡ºå¼‚å¸¸åé€šçŸ¥,ä½¿ç”¨åœ¨æ–¹æ³•aspect()ä¸Šæ³¨å†Œçš„åˆ‡å…¥ç‚¹
 	public void afterThrow(JoinPoint joinPoint, Exception ex){
 		System.out.println("afterThrow " + joinPoint + "\t" + ex.getMessage());
 	}

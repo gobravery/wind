@@ -24,9 +24,9 @@ import com.gobravery.wind.xml.Tables;
 import net.sf.json.JSONArray;
 
 public abstract class AbstractDataSync {
-	protected int syncThreadNum = 100; // ������
-	protected String primarycol; // ������
-	protected String cpkey; // ������
+	protected int syncThreadNum = 100; // 锟斤拷锟斤拷锟斤拷
+	protected String primarycol; // 锟斤拷锟斤拷锟斤拷
+	protected String cpkey; // 锟斤拷锟斤拷锟斤拷
 	public Tables getTables() throws JAXBException, SAXException,
 			ParserConfigurationException {
 		Tables tbs = JaxbReadXml.readStream(
@@ -51,7 +51,7 @@ public abstract class AbstractDataSync {
 				syncData(t);
 			}
 		} catch (Exception e) {
-			System.out.println("�������ļ�ʧ��,����cptables.xml�ļ�!");
+			System.out.println("锟斤拷锟斤拷锟斤拷锟侥硷拷失锟斤拷,锟斤拷锟斤拷cptables.xml锟侥硷拷!");
 			e.printStackTrace();
 			return;
 		} 
@@ -81,10 +81,10 @@ public abstract class AbstractDataSync {
 	}
 
 	public String getCpkeyVal(String tablename, String cpkey)throws Exception {
-		// ��ú��Ŀ�����
+		// 锟斤拷煤锟斤拷目锟斤拷锟斤拷锟�
         Connection coreConnection = ConnectionFactory.getDMSConnection(4);  
         Statement coreStmt = coreConnection.createStatement();  
-       // Ϊÿ���̷߳�������
+       // 为每锟斤拷锟竭程凤拷锟斤拷锟斤拷锟斤拷
         ResultSet coreRs = coreStmt.executeQuery(SQLPkg.getCpkeyValSQL(tablename,cpkey)); 
         coreRs.next();  
         String cpkeyVal = coreRs.getString(1);  

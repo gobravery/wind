@@ -22,12 +22,12 @@ public class FileWebserviceImpl implements FileWebservice{
 		return "hello my is fileWebservice";
 	}
 	public long myname(String name){
-		//��ʼsession���洢
+		//锟斤拷始session锟斤拷锟芥储
 		System.out.println("my name is :"+name);
 		return name.getBytes().length;
 	}
 	public void login(String name){
-		//��ʼsession���洢
+		//锟斤拷始session锟斤拷锟芥储
 		MessageContext mc = MessageContext.getCurrentMessageContext();  
         ServiceContext sc = mc.getServiceContext();  
         sc.setProperty("login", name);      
@@ -38,7 +38,7 @@ public class FileWebserviceImpl implements FileWebservice{
         ServiceContext sc = mc.getServiceContext();  
         return  sc.getProperty(key);      
 	}
-	 // ʹ��byte[]���Ͳ����ϴ��������ļ�  
+	 // 使锟斤拷byte[]锟斤拷锟酵诧拷锟斤拷锟较达拷锟斤拷锟斤拷锟斤拷锟侥硷拷  
     public boolean uploadWithByte(byte[] file, String filename) {  
         FileOutputStream fos = null;  
         try {  
@@ -67,7 +67,7 @@ public class FileWebserviceImpl implements FileWebservice{
         }  
     }  
   
-    // ʹ��DataHandler���Ͳ����ϴ��ļ�  
+    // 使锟斤拷DataHandler锟斤拷锟酵诧拷锟斤拷锟较达拷锟侥硷拷  
     public long uploadWithDataHandler(DataHandler file, String filename,long size) {
   
         FileOutputStream fos = null;  
@@ -82,11 +82,11 @@ public class FileWebserviceImpl implements FileWebservice{
         	long temp=System.currentTimeMillis();
         	String filepath=dir+File.separator+temp+"_"+filename;
             fos = new FileOutputStream(filepath);  
-            // ��ͨ��DataHandler���getInputStream������ȡ�ϴ�����  
+            // 锟斤拷通锟斤拷DataHandler锟斤拷锟絞etInputStream锟斤拷锟斤拷锟斤拷取锟较达拷锟斤拷锟斤拷  
             writeInputStreamToFile(file.getInputStream(), fos);  
             fos.close();  
             File s=new File(filepath);  
-            System.out.println("���գ�"+s.length()+",����:"+size);
+            System.out.println("锟斤拷锟秸ｏ拷"+s.length()+",锟斤拷锟斤拷:"+size);
             return s.length();
         } catch (Exception e) {
         	e.printStackTrace();

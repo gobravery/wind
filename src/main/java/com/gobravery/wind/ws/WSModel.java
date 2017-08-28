@@ -25,7 +25,7 @@ public class WSModel<T> {
 		//
 		wsdlLocation=ws.wsdlLocation();
 		targetNamespace=ws.targetNamespace();
-		//取第一个
+		//鍙栫涓�涓�
 		String urlparam=ParseKeyword.getKeywords(wsdlLocation).get(0);
 		//
 		String roleparam=urlparam.substring(0,urlparam.lastIndexOf("."))+".role";
@@ -40,7 +40,7 @@ public class WSModel<T> {
 		String typeparam=urlparam.substring(0,urlparam.lastIndexOf("."))+".type";
 		type=ParseKeyword.getSysConf(typeparam);
 		//
-		wsdlLocation=ParseKeyword.parseValue(wsdlLocation);//填充url
+		wsdlLocation=ParseKeyword.parseValue(wsdlLocation);//濉厖url
 	}
 	public boolean isModel(){
 		return wsModelAble;
