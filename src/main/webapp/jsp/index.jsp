@@ -13,7 +13,7 @@
 		String path = request.getContextPath();
 	%>
 	<script type="text/javascript"
-		src="<%=path%>/js/jquery/jquery-1.7.2.js"></script>
+		src="<%=path%>/plugins/jquery/jquery-1.7.2.js"></script>
 	<script type="text/javascript">
 		$(document).ready(
 				function() {
