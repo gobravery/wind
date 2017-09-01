@@ -13,6 +13,7 @@
 		<jstl.version>1.2</jstl.version>
 		<aspectj.version>1.8.3</aspectj.version>
 		<jackson.version>2.6.1</jackson.version>
+		<shiro-version>1.4.0</shiro-version>
 		<axis-version>1.7.6</axis-version>
 	</properties>
 	<dependencies>
@@ -147,6 +148,27 @@
 			<artifactId>neethi</artifactId>
 			<version>3.0.3</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2-spring</artifactId>
+			<version>${axis-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>${shiro-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>${shiro-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${shiro-version}</version>
+		</dependency>
+		
 		<!--dependency>
 			<groupId>org.apache.woden</groupId>
 			<artifactId>woden-api</artifactId>
