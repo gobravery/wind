@@ -1,0 +1,10 @@
+.icon
+{
+    background: url(images/icon.jpg) no-repeat;
+    width: 25px;
+    line-height: 25px;
+    display: inline-block;
+}
+.icon-menu{
+  background-position: -98px -84px;
+}
