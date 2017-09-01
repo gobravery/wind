@@ -17,13 +17,12 @@
 	<!-- 设置不过滤内容，比如:css,jquery,img 等资源文件 -->
 	<!-- 设置不过滤内容，比如:css,jquery,img 等资源文件 -->
 	<mvc:default-servlet-handler />
+	<mvc:resources location="/plugins/"  mapping="/plugins/**" />
 	<!--mvc:resources location="/js/" mapping="/js/**"/> <mvc:resources location="/*.html" 
 		mapping="/**.html" /> <mvc:resources location="/css/*" mapping="/css/**" 
 		/> <mvc:resources location="/images/*" mapping="/images/**" / -->
 	<aop:aspectj-autoproxy proxy-target-class="true" />
-	<context:component-scan base-package="com.gobravery.wind.aop" />
-	<context:component-scan base-package="com.gobravery.wind.common" />
-	<context:component-scan base-package="com.gobravery.wind.ctrl" />
+	<context:component-scan base-package="com.gobravery.wind" />
 	<context:annotation-config />
 	<mvc:annotation-driven>
 		<!--mvc:message-converters> <bean class="org.springframework.http.converter.StringHttpMessageConverter"/> 
@@ -34,23 +33,20 @@
 			<bean
 				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 				<property name="objectMapper" value="#{jsonDataUtils.mapper}" />
-				<!--property name="supportedMediaTypes">
-					<list>
-						<value>text/json;charset=UTF-8</value>
-					</list>
-				</property-->
+				<!--property name="supportedMediaTypes"> <list> <value>text/json;charset=UTF-8</value> 
+					</list> </property -->
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 	<!-- mvc:view-controller可以在不需要Controller处理request的情况，转向到设置的View -->
 	<!-- 像下面这样设置，如果请求为/，则不通过controller，而直接解析为/index.jsp -->
-	<mvc:view-controller path="/" view-name="index" />
+	<mvc:view-controller path="/" view-name="/mgr/index" />
 	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView"></property>
 		<property name="order" value="200" />
 		<!-- 配置jsp路径前缀 -->
-		<property name="prefix" value="/jsp/"></property>
+		<property name="prefix" value="/WEB-INF/views"></property>
 		<!-- 配置URl后缀 -->
 		<property name="suffix" value=".jsp"></property>
 	</bean>
